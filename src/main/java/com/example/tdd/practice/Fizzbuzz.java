@@ -6,16 +6,17 @@ public class Fizzbuzz {
 
         String result = "";
 
-        if (isFizzBuzz(i)){
-            result = util.FIZZBUZZ_STRING;
-        } else if (isFizz(i)){
+        if (isFizz(i)){
             result = util.FIZZ_STRING;
-        } else if (isBuzz(i)){
-            result = util.BUZZ_STRING;
-        } else {
-            result = String.valueOf(i);
         }
 
+        if (isBuzz(i)){
+            result = result + util.BUZZ_STRING;
+        }
+
+        if (result.equals("")) {
+            result = String.valueOf(i);
+        }
         return result;
     }
 
@@ -35,11 +36,4 @@ public class Fizzbuzz {
         return buzz;
     }
 
-    private boolean isFizzBuzz(int number){
-        boolean fizzbuzz = false;
-        if (number%util.FIZZBUZZ == 0){
-            fizzbuzz = true;
-        }
-        return fizzbuzz;
-    }
 }
